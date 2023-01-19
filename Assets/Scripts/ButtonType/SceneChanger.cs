@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
 public class SceneChanger : IButtonBehaviour
 {
     private SceneData _sceneData;
@@ -18,12 +13,10 @@ public class SceneChanger : IButtonBehaviour
     }
 
     public void OnButtonDefoult(MyButton button)
-    {
-        //button.OnButtonCliked(_sceneData._sceneIndex);
+    {        
     }
 
     public void OnButtonEnter(MyButton button)
-    {
-        //button.OnButtonCliked(_sceneData._sceneIndex);
+    {        
     }   
 }

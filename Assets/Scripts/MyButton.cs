@@ -9,7 +9,7 @@ public enum ButtonBehaviourType
 {
     ScaleChange,
     ColorChange,
-    All,
+    AllChange,
     SceneChange
 }
 
@@ -58,7 +58,11 @@ public class MyButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             case ButtonBehaviourType.SceneChange:
                 {
                     _buttonBehaviour = new SceneChanger(_sceneData);
-                    //_buttonBehaviour = new ColorChanger(_colorData);
+                    break;
+                }
+            case ButtonBehaviourType.AllChange:
+                {
+                    _buttonBehaviour = new AllChanger(_colorData, _scaleData);
                     break;
                 }
         }
@@ -79,6 +83,7 @@ public class MyButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         SceneManager.LoadScene(_sceneData._sceneIndex);
         Debug.Log("Next Scene");
     }
+
     public void All(Color color, Vector3 scale)
     {
         _buttonImage.color = color;
