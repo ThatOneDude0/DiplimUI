@@ -2,18 +2,20 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public enum ButtonBehaviourType
 {
     ScaleChange,
     ColorChange,
-    All
+    All,
+    SceneChange
 }
 
 
 [RequireComponent(typeof(Image))]
-public class MyButton : MonoBehaviour, /*IPointerDownHandler,*/ IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IPointerUpHandler
+public class MyButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IPointerUpHandler
 {
     public ButtonBehaviourType buttonBehaviourType;
 
@@ -21,27 +23,23 @@ public class MyButton : MonoBehaviour, /*IPointerDownHandler,*/ IPointerEnterHan
     public event Action ButtonCliked;
     public event Action ButtonEnd;
 
-    //public Color baseColor = Color.white;
-    //public Color enterColor = Color.white;
-    //public Color clickColor = Color.white;
-
-    //public Vector3 baseScale = new Vector3(1f, 1f);
-    //public Vector3 enterScale = new Vector3(1.2f, 1.2f);
-    //public Vector3 clickScale = new Vector3(1f, 1f);
-
     private Image _buttonImage;
     private IButtonBehaviour _buttonBehaviour;
 
     private ScaleData _scaleData;
     private ColorData _colorData;
-    //test
-    
-    //test
+    private SceneData _sceneData;
 
-    private void Start()
+    private void Awake()
     {
         _scaleData = Resources.Load<ScaleData>("ButtonScaleChanger");
         _colorData = Resources.Load<ColorData>("ButtonColorChanger");
+        _sceneData = Resources.Load<SceneData>("ButtonSceneChanger");
+    }
+
+    private void Start()
+    {
+        
 
         _buttonImage = GetComponent<Image>();
 
@@ -57,12 +55,12 @@ public class MyButton : MonoBehaviour, /*IPointerDownHandler,*/ IPointerEnterHan
                     _buttonBehaviour = new ColorChanger(_colorData);
                     break;
                 }
-            //case ButtonBehaviourType.All:
-            //    {
-            //        //_buttonBehaviour = new ColorChanger(baseColor, enterColor, clickColor);
-            //        //_buttonBehaviour = new ScaleChanger(baseScale, enterScale, clickScale);                  
-            //        break;
-            //    }
+            case ButtonBehaviourType.SceneChange:
+                {
+                    _buttonBehaviour = new SceneChanger(_sceneData);
+                    //_buttonBehaviour = new ColorChanger(_colorData);
+                    break;
+                }
         }
     }
 
@@ -76,18 +74,16 @@ public class MyButton : MonoBehaviour, /*IPointerDownHandler,*/ IPointerEnterHan
         _buttonImage.transform.localScale = scale;
     }
 
+    public void OnButtonCliked(int sceneIndex)
+    {
+        SceneManager.LoadScene(_sceneData._sceneIndex);
+        Debug.Log("Next Scene");
+    }
     public void All(Color color, Vector3 scale)
     {
         _buttonImage.color = color;
         _buttonImage.transform.localScale = scale;
     }
-
-    //по нажатию кнопки 
-    //public void OnPointerDown(PointerEventData eventData)
-    //{
-    //    _buttonBehaviour.OnButtonDefoult(this);
-    //    Debug.Log("input");
-    //}
 
     //на отпускание кнокпи
     public void OnPointerClick(PointerEventData eventData)
