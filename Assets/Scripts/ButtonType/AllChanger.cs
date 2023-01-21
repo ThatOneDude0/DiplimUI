@@ -15,19 +15,16 @@ public class AllChanger : IButtonBehaviour
 
     public void OnButtonClick(MyButton button)
     {
-        button.ChangeColor(_colorData._clickColor);
-        button.ChangeScale(_scaleData._clickScale);
+        button.ChangeAll(_colorData._clickColor, _scaleData._clickScale);        
     }
 
     public void OnButtonEnter(MyButton button)
     {
-        button.ChangeColor(_colorData._enterColor);
-        button.ChangeScale(_scaleData._enterScale);
+        button.ChangeAll(_colorData._enterColor, _scaleData._enterScale);
     }
 
     public void OnButtonDefoult(MyButton button)
     {
-        button.ChangeColor(_colorData._baseColor);
-        button.ChangeScale(_scaleData._baseScale);
+        button.ChangeAll(_colorData._baseColor, _scaleData._baseScale);
     }
 }

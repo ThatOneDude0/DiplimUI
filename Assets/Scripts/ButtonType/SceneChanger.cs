@@ -1,4 +1,4 @@
-public class SceneChanger : IButtonBehaviour
+public class SceneChanger : IButtonInteraction
 {
     private SceneData _sceneData;
 
@@ -7,16 +7,8 @@ public class SceneChanger : IButtonBehaviour
         _sceneData = sceneData;
     }
 
-    public void OnButtonClick(MyButton button)
+    public void OnButtonClick(MyInteraction button)
     {
         button.OnButtonCliked(_sceneData._sceneIndex);
     }
-
-    public void OnButtonDefoult(MyButton button)
-    {        
-    }
-
-    public void OnButtonEnter(MyButton button)
-    {        
-    }   
 }

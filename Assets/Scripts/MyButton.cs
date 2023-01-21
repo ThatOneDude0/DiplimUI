@@ -10,9 +10,7 @@ public enum ButtonBehaviourType
     ScaleChange,
     ColorChange,
     AllChange,
-    SceneChange
 }
-
 
 [RequireComponent(typeof(Image))]
 public class MyButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IPointerUpHandler
@@ -28,13 +26,11 @@ public class MyButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private ScaleData _scaleData;
     private ColorData _colorData;
-    private SceneData _sceneData;
 
     private void Awake()
     {
         _scaleData = Resources.Load<ScaleData>("ButtonScaleChanger");
-        _colorData = Resources.Load<ColorData>("ButtonColorChanger");
-        _sceneData = Resources.Load<SceneData>("ButtonSceneChanger");
+        _colorData = Resources.Load<ColorData>("ButtonColorChanger");       
     }
 
     private void Start()
@@ -54,18 +50,13 @@ public class MyButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 {
                     _buttonBehaviour = new ColorChanger(_colorData);
                     break;
-                }
-            case ButtonBehaviourType.SceneChange:
-                {
-                    _buttonBehaviour = new SceneChanger(_sceneData);
-                    break;
-                }
+                }         
             case ButtonBehaviourType.AllChange:
                 {
                     _buttonBehaviour = new AllChanger(_colorData, _scaleData);
                     break;
                 }
-        }
+        }      
     }
 
     public void ChangeColor(Color color)
@@ -78,13 +69,7 @@ public class MyButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         _buttonImage.transform.localScale = scale;
     }
 
-    public void OnButtonCliked(int sceneIndex)
-    {
-        SceneManager.LoadScene(_sceneData._sceneIndex);
-        Debug.Log("Next Scene");
-    }
-
-    public void All(Color color, Vector3 scale)
+    public void ChangeAll(Color color, Vector3 scale)
     {
         _buttonImage.color = color;
         _buttonImage.transform.localScale = scale;
