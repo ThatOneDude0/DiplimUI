@@ -213,13 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c46b18ed392dd442819238833b97cbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonBehaviourType: 0
-  baseColor: {r: 1, g: 1, b: 1, a: 1}
-  enterColor: {r: 0.19436097, g: 1, b: 0, a: 1}
-  clickColor: {r: 1, g: 0, b: 0, a: 1}
-  baseScale: {x: 1, y: 1, z: 0}
-  enterScale: {x: 1.2, y: 1.2, z: 0}
-  clickScale: {x: 0.8, y: 0.8, z: 0}
+  buttonBehaviourType: 1
 --- !u!1 &84841694
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,12 +832,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonBehaviourType: 1
-  baseColor: {r: 1, g: 1, b: 1, a: 1}
-  enterColor: {r: 0.19436097, g: 1, b: 0, a: 1}
-  clickColor: {r: 1, g: 0, b: 0, a: 1}
-  baseScale: {x: 1, y: 1, z: 0}
-  enterScale: {x: 1.2, y: 1.2, z: 0}
-  clickScale: {x: 1, y: 1, z: 0}
 --- !u!114 &769696140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1389,13 +1377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c46b18ed392dd442819238833b97cbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonBehaviourType: 0
-  baseColor: {r: 1, g: 1, b: 1, a: 1}
-  enterColor: {r: 1, g: 1, b: 1, a: 1}
-  clickColor: {r: 1, g: 1, b: 1, a: 1}
-  baseScale: {x: 1, y: 1, z: 0}
-  enterScale: {x: 1.2, y: 1.2, z: 0}
-  clickScale: {x: 1, y: 1, z: 0}
+  buttonBehaviourType: 1
 --- !u!1 &1572946845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1664,12 +1646,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonBehaviourType: 1
-  baseColor: {r: 1, g: 1, b: 1, a: 1}
-  enterColor: {r: 0.24280453, g: 1, b: 0, a: 1}
-  clickColor: {r: 1, g: 0, b: 0, a: 1}
-  baseScale: {x: 1, y: 1, z: 0}
-  enterScale: {x: 1.2, y: 1.2, z: 0}
-  clickScale: {x: 0.8, y: 0.8, z: 0}
 --- !u!114 &2020094976
 MonoBehaviour:
   m_ObjectHideFlags: 0
