@@ -612,6 +612,7 @@ GameObject:
   - component: {fileID: 794385255}
   - component: {fileID: 794385254}
   - component: {fileID: 794385253}
+  - component: {fileID: 794385256}
   m_Layer: 5
   m_Name: ButtonSettings
   m_TagString: Untagged
@@ -652,13 +653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c46b18ed392dd442819238833b97cbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonBehaviourType: 1
-  baseColor: {r: 1, g: 1, b: 1, a: 1}
-  enterColor: {r: 0.24280453, g: 1, b: 0, a: 1}
-  clickColor: {r: 1, g: 0, b: 0, a: 1}
-  baseScale: {x: 1, y: 1, z: 0}
-  enterScale: {x: 1.2, y: 1.2, z: 0}
-  clickScale: {x: 0.8, y: 0.8, z: 0}
+  buttonBehaviourType: 2
 --- !u!114 &794385254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -697,6 +692,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794385251}
   m_CullTransparentMesh: 1
+--- !u!114 &794385256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794385251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959974014130d004fa9b5b4bb86358f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonInteractionType: 0
 --- !u!1 &851713127
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,7 +920,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1540720909
 Transform:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public enum ButtonInteractionType
 {
     SceneChange,
-    //Setting
+    OpenSetting
 }
 public class MyInteraction : MonoBehaviour, IPointerClickHandler
 {
@@ -16,12 +16,12 @@ public class MyInteraction : MonoBehaviour, IPointerClickHandler
 
     private IButtonInteraction buttonInteraction;
     private SceneData _sceneData;
-    private SceneData _sceneDataSetting;
+    private SettingData _sceneDataSetting;
 
     private void Start()
     {
         _sceneData = Resources.Load<SceneData>("ButtonSceneChanger");
-        _sceneDataSetting = Resources.Load<SceneData>("ButtonSceneChangerOne");
+        _sceneDataSetting = Resources.Load<SettingData>("ButtonSetting");
 
         switch (buttonInteractionType)
         {
@@ -30,12 +30,16 @@ public class MyInteraction : MonoBehaviour, IPointerClickHandler
                     buttonInteraction = new SceneChanger(_sceneData);
                     break;
                 }
-            //case ButtonInteractionType.Setting:
-            //    {
-            //        buttonInteraction = new SceneChanger(_sceneDataSetting);
-            //        break;
-            //    }
+            case ButtonInteractionType.OpenSetting:
+                {
+                    buttonInteraction = new SettingOpen(_sceneDataSetting);
+                    break;
+                }
         }
+    }
+    public void OnSettingOpen(GameObject setting)
+    {
+        setting.SetActive(true);
     }
 
     public void OnButtonCliked(int sceneIndex)

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ButtonColorChanger
   m_EditorClassIdentifier: 
   _baseColor: {r: 1, g: 1, b: 1, a: 1}
-  _enterColor: {r: 0.28304815, g: 1, b: 0, a: 1}
-  _clickColor: {r: 1, g: 0, b: 0, a: 1}
+  _enterColor: {r: 1, g: 0.21942987, b: 0, a: 1}
+  _clickColor: {r: 1, g: 1, b: 1, a: 1}
