@@ -22,14 +22,24 @@ public class MouseClick : MonoBehaviour
         //    Instantiate(particle, MousePos, transform.rotation);
         //}
 
+        //if (Input.GetKeyDown(KeyCode.Mouse0))
+        //{
+        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);          
+
+        //    if (Physics.Raycast(ray))
+        //    {
+        //        Instantiate(particle, transform.position, transform.rotation);                
+        //    }
+        //}
+
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);          
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
-            if (Physics.Raycast(ray))
+            if (Physics.Raycast(ray, out hit, 100))
             {
                 Instantiate(particle, transform.position, transform.rotation);
-                Debug.Log("sdrfg");
             }
         }
     }
