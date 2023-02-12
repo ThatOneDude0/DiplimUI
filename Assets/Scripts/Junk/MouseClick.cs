@@ -32,15 +32,22 @@ public class MouseClick : MonoBehaviour
         //    }
         //}
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //    RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, 100))
-            {
-                Instantiate(particle, transform.position, transform.rotation);
-            }
+        //    if (Physics.Raycast(ray, out hit, 100))
+        //    {
+        //        Instantiate(particle, transform.position, transform.rotation);
+        //    }
+        //}
+
+        if (Input.GetMouseButtonDown(0))
+
+        {
+            Vector3 ray = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Instantiate(particle, ray, transform.rotation);
         }
     }
 }
