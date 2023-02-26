@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = " New ButtonSetting", menuName = "Setting", order = 51)]
 public class SettingData : ScriptableObject
 {
-    public GameObject Setting;
+    public int SettingsSceneIndex;
 }

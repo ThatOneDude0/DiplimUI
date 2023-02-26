@@ -3,12 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
 public class DestroyParticle : MonoBehaviour
 {
-    public ParticleSystem particleSystem;
+    [SerializeField] private ParticleSystem _particleSystem;
+
+    private void Start()
+    {
+        _particleSystem = GetComponent<ParticleSystem>();
+    }
 
     private void Update()
     {
-        //particleSystem.
+        if (_particleSystem.isStopped)
+        {
+            Destroy(gameObject);
+        }
     }
 }

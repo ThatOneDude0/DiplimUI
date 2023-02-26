@@ -9,6 +9,6 @@ public class SceneChanger : IButtonInteraction
 
     public void OnButtonClick(MyInteraction button)
     {
-        button.OnButtonCliked(_sceneData._sceneIndex);
+        button.OnButtonCliked(_sceneData.SceneIndex);
     }
 }

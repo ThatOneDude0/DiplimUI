@@ -13,6 +13,6 @@ public class SettingOpen : IButtonInteraction
 
     public void OnButtonClick(MyInteraction button)
     {
-        button.OnSettingOpen(_settingData.Setting);
+        button.OnSettingOpen(_settingData.SettingsSceneIndex);
     }
 }

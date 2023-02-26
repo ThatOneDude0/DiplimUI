@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public enum ButtonInteractionType
 {
     SceneChange,
-    OpenSetting
+    OpenSetting,
+    OpenShop
 }
 public class MyInteraction : MonoBehaviour, IPointerClickHandler
 {
@@ -15,13 +16,16 @@ public class MyInteraction : MonoBehaviour, IPointerClickHandler
     public ButtonInteractionType buttonInteractionType;
 
     private IButtonInteraction buttonInteraction;
+
     private SceneData _sceneData;
     private SettingData _sceneDataSetting;
+    private ShopData _shopData;
 
     private void Start()
     {
         _sceneData = Resources.Load<SceneData>("ButtonSceneChanger");
         _sceneDataSetting = Resources.Load<SettingData>("ButtonSetting");
+        _shopData = Resources.Load<ShopData>("ButtonShop");
 
         switch (buttonInteractionType)
         {
@@ -35,17 +39,29 @@ public class MyInteraction : MonoBehaviour, IPointerClickHandler
                     buttonInteraction = new SettingOpen(_sceneDataSetting);
                     break;
                 }
+            case ButtonInteractionType.OpenShop:
+                {
+                    buttonInteraction = new ShopOpen(_shopData); 
+                    break;
+                }
         }
     }
-    public void OnSettingOpen(GameObject setting)
+    public void OnSettingOpen(int sceneIndex)
     {
-        setting.SetActive(true);
+        SceneManager.LoadScene(_sceneDataSetting.SettingsSceneIndex);
+        Debug.Log("Next Scene 0");
     }
 
     public void OnButtonCliked(int sceneIndex)
     {
-        SceneManager.LoadScene(_sceneData._sceneIndex);
-        Debug.Log("Next Scene");
+        SceneManager.LoadScene(_sceneData.SceneIndex);
+        Debug.Log("Next Scene 1");
+    }
+
+    public void OnShopOpen(int sceneIndex)
+    {
+        SceneManager.LoadScene(_shopData.ShopSceneIndex);
+        Debug.Log("Next Scene 2");
     }
 
     public void OnPointerClick(PointerEventData eventData)
