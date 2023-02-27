@@ -7,7 +7,8 @@ public enum ButtonInteractionType
 {
     SceneChange,
     OpenSetting,
-    OpenShop
+    OpenShop,
+    OpenExit
 }
 public class MyInteraction : MonoBehaviour, IPointerClickHandler
 {
@@ -20,12 +21,14 @@ public class MyInteraction : MonoBehaviour, IPointerClickHandler
     private SceneData _sceneData;
     private SettingData _sceneDataSetting;
     private ShopData _shopData;
+    private ExitData _exitData;
 
     private void Start()
     {
         _sceneData = Resources.Load<SceneData>("ButtonSceneChanger");
         _sceneDataSetting = Resources.Load<SettingData>("ButtonSetting");
         _shopData = Resources.Load<ShopData>("ButtonShop");
+        _exitData = Resources.Load<ExitData>("ButtonExit");
 
         switch (buttonInteractionType)
         {
@@ -44,8 +47,19 @@ public class MyInteraction : MonoBehaviour, IPointerClickHandler
                     buttonInteraction = new ShopOpen(_shopData); 
                     break;
                 }
+                case ButtonInteractionType.OpenExit:
+                {
+                    buttonInteraction = new ExitOpen(_exitData);
+                    break;
+                }
         }
     }
+
+    public void OnExitOpen(int sceneIndex)
+    {
+        SceneManager.LoadScene(_exitData.ExitSceneIndex);
+    }
+
     public void OnSettingOpen(int sceneIndex)
     {
         SceneManager.LoadScene(_sceneDataSetting.SettingsSceneIndex);

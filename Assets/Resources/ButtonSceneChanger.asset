@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6e691ac6bd2fd74f8349358cccc9ed2, type: 3}
   m_Name: ButtonSceneChanger
   m_EditorClassIdentifier: 
-  _sceneIndex: 0
+  SceneIndex: 1
