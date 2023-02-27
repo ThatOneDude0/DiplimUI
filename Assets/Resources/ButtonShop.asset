@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 010673649ed150246997e5df41a1d3bc, type: 3}
   m_Name: ButtonShop
   m_EditorClassIdentifier: 
-  ShopSceneIndex: 3
+  ShopSceneIndex: 2

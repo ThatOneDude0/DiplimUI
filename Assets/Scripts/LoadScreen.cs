@@ -6,13 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class LoadScreen : MonoBehaviour
 {
-    [SerializeField] private GameObject _canvasLoadScreen;
     [SerializeField] private Slider _sliderProgress;
 
     public void Start()
-    {
-        //_canvasLoadScreen.SetActive(true);
-
+    {       
         StartCoroutine(LoadAsync());
     }
 

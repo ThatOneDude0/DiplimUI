@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3728448f9fec6a744a35db2f58b1526b, type: 3}
   m_Name: ButtonSetting
   m_EditorClassIdentifier: 
-  SettingsSceneIndex: 2
+  SettingsSceneIndex: 1

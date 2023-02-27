@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bc65c147f99d854280ff5da3db923bb, type: 3}
   m_Name: ButtonExit
   m_EditorClassIdentifier: 
-  ExitSceneIndex: 4
+  ExitSceneIndex: 3
