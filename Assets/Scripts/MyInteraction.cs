@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -8,7 +9,7 @@ public enum ButtonInteractionType
     SceneChange,
     OpenSetting,
     OpenShop,
-    OpenExit
+    OpenMainScreen
 }
 public class MyInteraction : MonoBehaviour, IPointerClickHandler
 {
@@ -18,65 +19,58 @@ public class MyInteraction : MonoBehaviour, IPointerClickHandler
 
     private IButtonInteraction buttonInteraction;
 
-    private SceneData _sceneData;
-    private SettingData _sceneDataSetting;
-    private ShopData _shopData;
-    private ExitData _exitData;
+    //private SceneData _sceneData;
+
+    [SerializeField] private ObjectKeeper _objectKeeper;
 
     private void Start()
     {
-        _sceneData = Resources.Load<SceneData>("ButtonSceneChanger");
-        _sceneDataSetting = Resources.Load<SettingData>("ButtonSetting");
-        _shopData = Resources.Load<ShopData>("ButtonShop");
-        _exitData = Resources.Load<ExitData>("ButtonExit");
+        //_sceneData = Resources.Load<SceneData>("ButtonSceneChanger");
 
         switch (buttonInteractionType)
         {
-            case ButtonInteractionType.SceneChange:
-                {
-                    buttonInteraction = new SceneChanger(_sceneData);
-                    break;
-                }
             case ButtonInteractionType.OpenSetting:
-                {
-                    buttonInteraction = new SettingOpen(_sceneDataSetting);
+                {                   
+                    buttonInteraction = new SettingsKeeperAction(_objectKeeper);
                     break;
                 }
             case ButtonInteractionType.OpenShop:
                 {
-                    buttonInteraction = new ShopOpen(_shopData); 
+                    buttonInteraction = new ShopKeeperAction(_objectKeeper);
                     break;
                 }
-                case ButtonInteractionType.OpenExit:
+            case ButtonInteractionType.OpenMainScreen:
                 {
-                    buttonInteraction = new ExitOpen(_exitData);
+                    buttonInteraction = new MainScreenKeeperAction(_objectKeeper);
                     break;
                 }
         }
     }
 
-    public void OnExitOpen(int sceneIndex)
+    public void OnSettingOpen(GameObject one)
     {
-        SceneManager.LoadScene(_exitData.ExitSceneIndex);
+        _objectKeeper.Canvas[1].SetActive(true);
+        _objectKeeper.Canvas[2].SetActive(false);
     }
 
-    public void OnSettingOpen(int sceneIndex)
+    public void OnShopOpen(GameObject one)
     {
-        SceneManager.LoadScene(_sceneDataSetting.SettingsSceneIndex);
-        Debug.Log("Next Scene 0");
+        _objectKeeper.Canvas[2].SetActive(true);
+        _objectKeeper.Canvas[1].SetActive(false);
     }
 
-    public void OnButtonCliked(int sceneIndex)
+    public void OnMainScreenOpen(GameObject one)
     {
-        SceneManager.LoadScene(_sceneData.SceneIndex);
-        Debug.Log("Next Scene 1");
+        _objectKeeper.Canvas[0].SetActive(true);
+        _objectKeeper.Canvas[2].SetActive(false);
+        _objectKeeper.Canvas[1].SetActive(false);
     }
 
-    public void OnShopOpen(int sceneIndex)
-    {
-        SceneManager.LoadScene(_shopData.ShopSceneIndex);
-        Debug.Log("Next Scene 2");
-    }
+    //public void OnButtonCliked(int sceneIndex)
+    //{
+    //    SceneManager.LoadScene(_sceneData.SceneIndex);
+    //    Debug.Log("Next Scene 1");
+    //}
 
     public void OnPointerClick(PointerEventData eventData)
     {

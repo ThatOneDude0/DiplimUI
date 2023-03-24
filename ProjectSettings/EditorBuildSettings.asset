@@ -11,13 +11,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScreen.unity
     guid: cd64e3ce4b3fd504fa7077292b1d245b
-  - enabled: 1
-    path: Assets/Scenes/SettingsScreen.unity
-    guid: 2f149383ccf44c94aaa919a67d8c8b95
-  - enabled: 1
-    path: Assets/Scenes/ShopScreen.unity
-    guid: fbe403f54785d0d43ae99b4f912b4e3c
-  - enabled: 1
-    path: Assets/Scenes/ExitScreen.unity
-    guid: e500e0583426a3742a59258404147290
   m_configObjects: {}
