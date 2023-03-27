@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public enum ButtonBehaviourType
 {
-    None,
+    Inaction,
     ScaleChange,
     ColorChange,
     AllChange
@@ -23,6 +23,7 @@ public class MyButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public event Action ButtonEnd;
 
     private Image _buttonImage;
+
     private IButtonBehaviour _buttonBehaviour;
 
     private ScaleData _scaleData;
@@ -36,17 +37,14 @@ public class MyButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private void Start()
     {
-        
-
         _buttonImage = GetComponent<Image>();
 
         switch (buttonBehaviourType)
         {
-            //case ButtonBehaviourType.None:
-            //    {
-            //        _buttonBehaviour = new 
-            //        break;
-            //    }
+            case ButtonBehaviourType.Inaction:
+                {                  
+                    break;
+                }
             case ButtonBehaviourType.ScaleChange:
                 {
                     _buttonBehaviour = new ScaleChanger(_scaleData);
@@ -61,7 +59,7 @@ public class MyButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 {
                     _buttonBehaviour = new AllChanger(_colorData, _scaleData);
                     break;
-                }
+                }        
         }      
     }
 

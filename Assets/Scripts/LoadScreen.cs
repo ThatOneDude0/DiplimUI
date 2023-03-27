@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadScreen : MonoBehaviour
 {
+    [SerializeField] private int _sceneIndex;
     [SerializeField] private Slider _sliderProgress;
 
     public void Start()
@@ -15,20 +16,14 @@ public class LoadScreen : MonoBehaviour
 
     IEnumerator LoadAsync()
     {
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(1);
-        asyncOperation.allowSceneActivation = false;
+        AsyncOperation operation = SceneManager.LoadSceneAsync(_sceneIndex);
 
-        while (!asyncOperation.isDone)
+        while (!operation.isDone)
         {
-            _sliderProgress.value = asyncOperation.progress;
+            float prgress = operation.progress / 5.0f;
+            _sliderProgress.value = prgress;
 
-            if (asyncOperation.progress >= .9f && !asyncOperation.allowSceneActivation)
-            {
-                yield return new WaitForSeconds(2.3f);
-                asyncOperation.allowSceneActivation = true;
-            }
+            yield return null;
         }
-
-        yield return null;
     }
 }
