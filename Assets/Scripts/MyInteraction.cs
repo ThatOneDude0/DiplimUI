@@ -19,6 +19,8 @@ public class MyInteraction : MonoBehaviour, IPointerClickHandler
 
     private IButtonInteraction buttonInteraction;
 
+    [SerializeField] private UIAnimation _uIAnimation;
+
     //private SceneData _sceneData;
 
     [SerializeField] private ObjectKeeper _objectKeeper;
@@ -49,21 +51,24 @@ public class MyInteraction : MonoBehaviour, IPointerClickHandler
 
     public void OnSettingOpen(GameObject one)
     {
-        _objectKeeper.Canvas[1].SetActive(true);
-        _objectKeeper.Canvas[2].SetActive(false);
+        _uIAnimation.OnOpenShop();
+        //_objectKeeper.Canvas[1].SetActive(true);
+        //_objectKeeper.Canvas[2].SetActive(false);
     }
 
     public void OnShopOpen(GameObject one)
     {
-        _objectKeeper.Canvas[2].SetActive(true);
-        _objectKeeper.Canvas[1].SetActive(false);
+        _uIAnimation.OnOpenShop();
+        //_objectKeeper.Canvas[2].SetActive(true);
+        //_objectKeeper.Canvas[1].SetActive(false);    
     }
 
     public void OnMainScreenOpen(GameObject one)
     {
-        _objectKeeper.Canvas[0].SetActive(true);
-        _objectKeeper.Canvas[2].SetActive(false);
-        _objectKeeper.Canvas[1].SetActive(false);
+        //_objectKeeper.Canvas[0].SetActive(true);
+        //_objectKeeper.Canvas[2].SetActive(false);
+        //_objectKeeper.Canvas[1].SetActive(false);
+        _uIAnimation.OnCloseShop();
     }
 
     //public void OnButtonCliked(int sceneIndex)
